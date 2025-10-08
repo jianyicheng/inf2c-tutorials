@@ -8,17 +8,20 @@ A:
 
 main:
 
-	la $a3, A        # $a0 = src 
-	addi $a0, $a3, 0        # $a0 = src 
-	addi $a1, $a3, 40        # $a1 = dst
+	la  $a0, A
+	li  $a1, 20
+	jal print_array
 
-	li $a2, 5        # $a2 = size = 5
+	la   $a3, A        # $a0 = A
+	addi $a0, $a3, 0   # $a0 = src
+	addi $a1, $a3, 40  # $a1 = dst
+	li   $a2, 5        # $a2 = size (5)
 
 	jal func
 
-	la  $a0, A      # base address of A
-	li  $a1, 20     # length = 20
-	jal print_array # call function
+	la  $a0, A
+	li  $a1, 20
+	jal print_array
 
 	li $v0, 10
 	syscall
